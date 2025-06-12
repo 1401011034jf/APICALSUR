@@ -1,0 +1,26 @@
+{
+  "name": "apicalsur",
+  "version": "1.0.0",
+  "description": "API para sistema de CALSUR",
+  "main": "server.js",
+  "keywords": [
+    "api",
+    "calsur",
+    "node",
+    "express"
+  ],
+  "author": "Juan Fuentes",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon ./src/server.js",
+    "test": "echo\"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.14.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
