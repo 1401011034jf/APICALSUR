@@ -1,5 +1,7 @@
-const validate = function  validate(id, res){
-    return /^\d+$/.test(userId) ? res.send("Si es numero") : res.status(404), res.send("no es numero")
+export function validate(id, res) {
+  if (/^\d+$/.test(id)) {
+    res.send("Sí es número")
+  } else {
+    res.status(400).send("No es número")
+  }
 }
-
-module.exports ={ validate }
