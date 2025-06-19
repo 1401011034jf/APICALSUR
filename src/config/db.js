@@ -1,37 +1,21 @@
 // Get the client
+import mysql from 'mysql2/promise';
+import 'dotenv/config';
 
-import mysql from 'mysql2/promise'
 
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'CALSUR',
-})
+    host: 'localhost', 
+    user: 'root',
+    database: 'CALSUR',
+    password: 'root',
+    waitForConnections: true,
+    connectionLimit: 10,
+    maxIdle: 10,
+    idleTimeout: 60000,
+    queueLimit: 0
+});
+console.log("conexion exitosa")
 
-export default pool
+export default pool;  // sirve para hacer publico al metodo
 
-
-// // A simple SELECT query
-// try {
-//   const [results, fields] = await connection.query(
-//     'SELECT * FROM `table` WHERE `name` = "Page" AND `age` > 45'
-//   );
-
-//   console.log(results); // results contains rows returned by server
-//   console.log(fields); // fields contains extra meta data about results, if available
-// } catch (err) {
-//   console.log(err);
-// }
-
-// // Using placeholders
-// try {
-//   const [results] = await connection.query(
-//     'SELECT * FROM `table` WHERE `name` = ? AND `age` > ?',
-//     ['Page', 45]
-//   );
-
-//   console.log(results);
-// } catch (err) {
-//   console.log(err);
-// }
+// se recomiedna usar pool cuando tenemos conexiones multiples
